@@ -978,7 +978,7 @@ MFRC522::PICC_Type MFRC522Extended::PICC_GetType(TagInfo *tag		///< The TagInfo 
 		default:	return PICC_Type::PICC_TYPE_UNKNOWN;
 	}
 } // End PICC_GetType()
-#if 0
+
 /**
  * Dumps debug info about the selected PICC to Serial.
  * On success the PICC is halted after dumping the data.
@@ -1003,7 +1003,7 @@ void MFRC522Extended::PICC_DumpToSerial(TagInfo *tag)
 			}
 			//static void PICC_DumpMifareClassicToSerial(MFRC522 &device, Print &logPrint, Uid *uid, PICC_Type piccType, MIFARE_Key *key);
 
-			MFRC522Debug::PICC_DumpMifareClassicToSerial(_driver, Serial, &tag->uid, piccType, &key);
+			MFRC522Debug::PICC_DumpMifareClassicToSerial(*this, Serial, &tag->uid, piccType, &key);
 			break;
 		
 		case PICC_Type::PICC_TYPE_MIFARE_UL:
@@ -1070,7 +1070,7 @@ void MFRC522Extended::PICC_DumpDetailsToSerial(TagInfo *tag	///< Pointer to TagI
 	Serial.print(F("PICC type: "));
 	Serial.println(MFRC522Debug::PICC_GetTypeName(piccType));
 } // End PICC_DumpDetailsToSerial()
-#endif
+
 
 /**
  * Dumps memory contents of a ISO-14443-4 PICC.

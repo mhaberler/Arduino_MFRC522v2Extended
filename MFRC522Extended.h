@@ -102,12 +102,10 @@ public:
 	static PICC_Type PICC_GetType(TagInfo *tag);
 	using MFRC522::PICC_GetType;// // make old PICC_GetType(byte sak) available, otherwise would be hidden by PICC_GetType(TagInfo *tag)
 
-#if 0
 	// Support functions for debuging
 	void PICC_DumpToSerial(TagInfo *tag);
 	//using MFRC522Extended::PICC_DumpToSerial; // make old PICC_DumpToSerial(Uid *uid) available, otherwise would be hidden by PICC_DumpToSerial(TagInfo *tag)
 	void PICC_DumpDetailsToSerial(TagInfo *tag);
-#endif
 	//using MFRC522Extended::PICC_DumpDetailsToSerial; // make old PICC_DumpDetailsToSerial(Uid *uid) available, otherwise would be hidden by PICC_DumpDetailsToSerial(TagInfo *tag)
 	void PICC_DumpISO14443_4(TagInfo *tag);
 
