@@ -725,8 +725,8 @@ MFRC522::StatusCode MFRC522Extended::TCL_Transceive(PcbBlock *send, PcbBlock *ba
 	// Check if CRC is taken care of by MFRC522
 	byte rxModeReg = _driver.PCD_ReadRegister(PCD_Register::TxModeReg);
 	if ((rxModeReg & 0x80) != 0x80) {
-		Serial.print("CRC is not taken care of by MFRC522: ");
-		Serial.println(rxModeReg, HEX);
+		// Serial.print("CRC is not taken care of by MFRC522: ");
+		// Serial.println(rxModeReg, HEX);
 
 		// Check the CRC
 		// We need at least the CRC_A value.
@@ -1001,14 +1001,11 @@ void MFRC522Extended::PICC_DumpToSerial(TagInfo *tag)
 			for (byte i = 0; i < 6; i++) {
 				key.keyByte[i] = 0xFF;
 			}
-			//static void PICC_DumpMifareClassicToSerial(MFRC522 &device, Print &logPrint, Uid *uid, PICC_Type piccType, MIFARE_Key *key);
-
 			MFRC522Debug::PICC_DumpMifareClassicToSerial(*this, Serial, &tag->uid, piccType, &key);
 			break;
 		
 		case PICC_Type::PICC_TYPE_MIFARE_UL:
-			// FIXME
-			// MFRC522Debug::PICC_DumpMifareUltralightToSerial(_device, Serial);
+			MFRC522Debug::PICC_DumpMifareUltralightToSerial(*this, Serial);
 			break;
 		
 		case PICC_Type::PICC_TYPE_ISO_14443_4:
