@@ -1007,8 +1007,7 @@ void MFRC522Extended::PICC_DumpToSerial(TagInfo *tag)
 			break;
 		
 		case PICC_Type::PICC_TYPE_MIFARE_UL:
-			// FIXME
-			// MFRC522Debug::PICC_DumpMifareUltralightToSerial(_device, Serial);
+			MFRC522Debug::PICC_DumpMifareUltralightToSerial(*this, Serial);
 			break;
 		
 		case PICC_Type::PICC_TYPE_ISO_14443_4:
