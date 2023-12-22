@@ -725,8 +725,8 @@ MFRC522::StatusCode MFRC522Extended::TCL_Transceive(PcbBlock *send, PcbBlock *ba
 	// Check if CRC is taken care of by MFRC522
 	byte rxModeReg = _driver.PCD_ReadRegister(PCD_Register::TxModeReg);
 	if ((rxModeReg & 0x80) != 0x80) {
-		Serial.print("CRC is not taken care of by MFRC522: ");
-		Serial.println(rxModeReg, HEX);
+		// Serial.print("CRC is not taken care of by MFRC522: ");
+		// Serial.println(rxModeReg, HEX);
 
 		// Check the CRC
 		// We need at least the CRC_A value.
