@@ -242,6 +242,7 @@ MFRC522::StatusCode MFRC522Extended::PICC_Select(	Uid *uid,			///< Pointer to Ui
 	if ((uid->sak & 0x24) == 0x20) {
 		Ats ats;
 		result = PICC_RequestATS(&ats);
+		tag.ats = ats; // save ats for later
 		if (result == StatusCode::STATUS_OK) {
 			// Check the ATS
 			if (ats.size > 0)
