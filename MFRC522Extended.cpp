@@ -974,8 +974,6 @@ MFRC522::PICC_Type MFRC522Extended::PICC_GetType(TagInfo *tag		///< The TagInfo 
 		case 0x20:
 			if (tag->atqa == 0x0344)
 				return PICC_Type::PICC_TYPE_MIFARE_DESFIRE;
-			if (tag->atqa == 0x424)
-				return PICC_Type::PICC_TYPE_NTAG424DNA;
 			return PICC_Type::PICC_TYPE_ISO_14443_4;
 		case 0x40:	return PICC_Type::PICC_TYPE_ISO_18092;
 		default:	return PICC_Type::PICC_TYPE_UNKNOWN;
